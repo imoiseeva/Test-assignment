@@ -6,27 +6,25 @@
 //
 
 import UIKit
-import SwiftSoup
-import Alamofire
 import AudioToolbox
 import AVFoundation
 
 class ViewController: UIViewController{
     
+    @IBOutlet weak var imageForAsking: UIImageView!
     
     @IBOutlet weak var flashlightTextButton: UIButton!
     
     @IBOutlet weak var IPAddressLabel: UILabel!
     
-    var parser = XMLParser()
+    var video = AVCaptureVideoPreviewLayer()
+    //session
+    let session = AVCaptureSession()
     
     var courses: [Model] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        let manager = ServerTrustManager(evaluators: ["whatismyip.akamai.com": DisabledEvaluator()])
-        //        let session = Session(serverTrustManager: manager)
     }
     
     
@@ -46,6 +44,16 @@ class ViewController: UIViewController{
         }
     }
     
+    
+    @IBAction func askButton(_ sender: UIButton) {
+        let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball2.png"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
+        imageForAsking.image = ballArray[Int.random(in: 0...4)]
+    }
+    
+    
+    @IBAction func scanQR(_ sender: UIButton) {
+        setupVideo()
+    }
     
    func toggleFlashLight() {
         guard let device = AVCaptureDevice.default(for: AVMediaType.video),
@@ -68,6 +76,51 @@ class ViewController: UIViewController{
             assert(false, "error: device flash light, \(error)")
         }
     }
+    
+    func setupVideo() {
+
+        //configure devise
+        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        //input
+        do {
+            let input = try AVCaptureDeviceInput(device: captureDevice!) //todo извлечь нормально
+            session.addInput(input)
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+        //output
+        let output = AVCaptureMetadataOutput()
+        session.addOutput(output)
+        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)//todo
+        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+        
+        //video
+        video = AVCaptureVideoPreviewLayer(session: session)
+        video.frame = view.layer.bounds
+        view.layer.addSublayer(video)
+        session.startRunning()
+    }
 
 }
 
+extension ViewController:  AVCaptureMetadataOutputObjectsDelegate {
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        
+        guard metadataObjects.count > 0 else { return }
+        if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
+            if object.type == AVMetadataObject.ObjectType.qr {
+                let alert = UIAlertController(title: "QR Code", message: object.stringValue, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Перейти", style: .default, handler: { (action) in
+                    print(object.stringValue)
+                }))
+                alert.addAction(UIAlertAction(title: "Копировать", style: .default, handler: { (action) in
+                    UIPasteboard.general.string = object.stringValue
+                    self.view.layer.sublayers?.removeLast()
+                    self.session.stopRunning()
+                    print(object.stringValue)
+                }))
+                present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+}
