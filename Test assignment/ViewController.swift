@@ -9,24 +9,19 @@ import UIKit
 import AudioToolbox
 import AVFoundation
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     
     @IBOutlet weak var imageForAsking: UIImageView!
-    
     @IBOutlet weak var flashlightTextButton: UIButton!
-    
     @IBOutlet weak var IPAddressLabel: UILabel!
     
     var video = AVCaptureVideoPreviewLayer()
-    //session
     let session = AVCaptureSession()
-    
-    var courses: [Model] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        flashlightTextButton.layer.cornerRadius = 6.0
     }
-    
     
     @IBAction func getIPAddress(_ sender: UIButton) {
         IPAddressLabel.text = NetworkManager.shared.fetchInfo()
@@ -36,26 +31,29 @@ class ViewController: UIViewController{
         toggleFlashLight()
     }
     
-    
     @IBAction func freezingButton(_ sender: UIButton) {
-        for _ in 1...5 {
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-            sleep(1)
-        }
+        freezing()
     }
-    
     
     @IBAction func askButton(_ sender: UIButton) {
         let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball2.png"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
         imageForAsking.image = ballArray[Int.random(in: 0...4)]
     }
     
-    
     @IBAction func scanQR(_ sender: UIButton) {
         setupVideo()
     }
     
-   func toggleFlashLight() {
+    // MARK: - Methods
+    
+    func freezing() {
+        for _ in 1...3 {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            sleep(1)
+        }
+    }
+    
+    func toggleFlashLight() {
         guard let device = AVCaptureDevice.default(for: AVMediaType.video),
               device.hasTorch else { return }
         do {
@@ -78,12 +76,13 @@ class ViewController: UIViewController{
     }
     
     func setupVideo() {
-
+        
         //configure devise
-        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else { return }
         //input
         do {
-            let input = try AVCaptureDeviceInput(device: captureDevice!) //todo извлечь нормально
+            let input = try AVCaptureDeviceInput(device: captureDevice)
+     //       self.session.removeInput(input).. не работает
             session.addInput(input)
         } catch {
             fatalError(error.localizedDescription)
@@ -100,26 +99,33 @@ class ViewController: UIViewController{
         view.layer.addSublayer(video)
         session.startRunning()
     }
-
-}
-
-extension ViewController:  AVCaptureMetadataOutputObjectsDelegate {
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+    
+    func metadataOutput(_ captureOutput: AVCaptureMetadataOutput,
+                        didOutput metadataObjects: [AVMetadataObject],
+                        from connection: AVCaptureConnection) {
         
-        guard metadataObjects.count > 0 else { return }
-        if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
-            if object.type == AVMetadataObject.ObjectType.qr {
-                let alert = UIAlertController(title: "QR Code", message: object.stringValue, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Перейти", style: .default, handler: { (action) in
-                    print(object.stringValue)
-                }))
-                alert.addAction(UIAlertAction(title: "Копировать", style: .default, handler: { (action) in
-                    UIPasteboard.general.string = object.stringValue
-                    self.view.layer.sublayers?.removeLast()
-                    self.session.stopRunning()
-                    print(object.stringValue)
-                }))
-                present(alert, animated: true, completion: nil)
+        if metadataObjects.count == 0 {
+            return
+        }
+        
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if metadataObj.type == AVMetadataObject.ObjectType.qr {
+            if let outputString = metadataObj.stringValue {
+                DispatchQueue.main.async {
+                    print(outputString)
+                    if outputString == "toggleFlashLight" {
+                        self.toggleFlashLight()
+                    }
+                    if outputString == "freezing"{
+                        self.freezing()
+                        self.session.stopRunning()
+                        self.video.removeFromSuperlayer()
+                    }
+                    if outputString == "getIP"{
+ //todo - write func
+                    }
+                }
             }
         }
     }

@@ -36,10 +36,7 @@ class NetworkManager {
             print("Header title: \(headerTitle)")
         } catch let error {
             print("Message: \(error)")
-        } catch {
-            print("error")
         }
         return title
     }
-    
 }
