@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sfv-1M-Ohy">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,72 +14,92 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Test_assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooX-fq-K6s">
-                                <rect key="frame" x="88" y="207" width="239" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="What's my address?">
-                                    <backgroundConfiguration key="background">
-                                        <color key="strokeColor" name="AccentColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="getIPAddress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a2A-aF-9vT"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your IP Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLI-Cf-jXh">
-                                <rect key="frame" x="88" y="156" width="239" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hcp-yi-A7W">
+                                <rect key="frame" x="30" y="161" width="260" height="199"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooX-fq-K6s">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="joD-QF-Uob"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="What's my address?">
+                                            <backgroundConfiguration key="background">
+                                                <color key="strokeColor" name="AccentColor"/>
+                                            </backgroundConfiguration>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="getIPAddress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a2A-aF-9vT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-Yf-1vC">
+                                        <rect key="frame" x="0.0" y="56" width="260" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="ybV-3V-VYL"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="It's getting dark" cornerStyle="large">
+                                            <backgroundConfiguration key="background">
+                                                <color key="strokeColor" name="AccentColor"/>
+                                            </backgroundConfiguration>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="flashlightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u7a-8g-i1B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm2-PL-MsI">
+                                        <rect key="frame" x="0.0" y="112" width="260" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="scJ-ze-7FG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Brrrr, It's freezing! " cornerStyle="large">
+                                            <backgroundConfiguration key="background">
+                                                <color key="strokeColor" name="AccentColor"/>
+                                            </backgroundConfiguration>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="freezingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="riT-4e-sPk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hft-Ci-jZL">
+                                        <rect key="frame" x="0.0" y="168" width="260" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Ask Me Anything" cornerStyle="large">
+                                            <backgroundConfiguration key="background">
+                                                <color key="strokeColor" name="AccentColor"/>
+                                            </backgroundConfiguration>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="askButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8nb-f3-Uh7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your IP Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLI-Cf-jXh">
+                                <rect key="frame" x="30" y="111" width="260" height="30"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IXk-yp-4Gs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-Yf-1vC">
-                                <rect key="frame" x="88" y="289" width="239" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="It's getting dark" cornerStyle="large">
-                                    <backgroundConfiguration key="background">
-                                        <color key="strokeColor" name="AccentColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="flashlightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u7a-8g-i1B"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm2-PL-MsI">
-                                <rect key="frame" x="88" y="382" width="239" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Brrrr, It's freezing! " cornerStyle="large">
-                                    <backgroundConfiguration key="background">
-                                        <color key="strokeColor" name="AccentColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="freezingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="riT-4e-sPk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hft-Ci-jZL">
-                                <rect key="frame" x="88" y="471" width="239" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Ask Me Anything" cornerStyle="large">
-                                    <backgroundConfiguration key="background">
-                                        <color key="strokeColor" name="AccentColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="askButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8nb-f3-Uh7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAK-9I-Euo">
-                                <rect key="frame" x="88" y="726" width="239" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B35-Xd-FDB">
+                                <rect key="frame" x="109" y="380" width="102" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="B35-Xd-FDB" secondAttribute="height" multiplier="102:97" id="lkG-w1-XBW"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAK-9I-Euo">
+                                <rect key="frame" x="30" y="497" width="260" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="xN3-PU-m5G"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="SCAN QR" cornerStyle="large">
                                     <backgroundConfiguration key="background">
@@ -90,13 +110,24 @@
                                     <action selector="scanQR:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6w-vq-gkr"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B35-Xd-FDB">
-                                <rect key="frame" x="125" y="523" width="164" height="134"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nLI-Cf-jXh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="42T-6d-Xhj"/>
+                            <constraint firstItem="hcp-yi-A7W" firstAttribute="top" secondItem="nLI-Cf-jXh" secondAttribute="bottom" constant="20" id="6Hv-t7-XXl"/>
+                            <constraint firstItem="nLI-Cf-jXh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="6WK-cd-okJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nLI-Cf-jXh" secondAttribute="trailing" constant="30" id="DZv-zb-Cod"/>
+                            <constraint firstItem="B35-Xd-FDB" firstAttribute="top" secondItem="hcp-yi-A7W" secondAttribute="bottom" constant="20" id="Qtu-eR-3Yj"/>
+                            <constraint firstItem="B35-Xd-FDB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VhR-lK-1Vl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GAK-9I-Euo" secondAttribute="trailing" constant="30" id="ZbE-eK-yy7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hcp-yi-A7W" secondAttribute="trailing" constant="30" id="fUN-Bt-m4u"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GAK-9I-Euo" secondAttribute="bottom" constant="40" id="kOf-M4-nkE"/>
+                            <constraint firstItem="B35-Xd-FDB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="51:284" id="nBg-qp-iJ0"/>
+                            <constraint firstItem="hcp-yi-A7W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="nOs-cM-7DI"/>
+                            <constraint firstItem="GAK-9I-Euo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="s4X-7W-cD3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GAK-9I-Euo" secondAttribute="trailing" constant="30" id="ujF-4n-EfF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Test assignment" id="6jN-Fi-Oo1"/>
                     <connections>
@@ -107,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.10144927536237" y="138.61607142857142"/>
+            <point key="canvasLocation" x="935.625" y="137.32394366197184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QRF-jQ-ZRy">
@@ -115,7 +146,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sfv-1M-Ohy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7fD-la-6zo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

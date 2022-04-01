@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D58C5FA8-2FC9-45B6-8051-41AA6372743F"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "85FB8B0A-E2AB-467A-B1D5-5A3E44BEF6B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Test assignment/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "85FB8B0A-E2AB-467A-B1D5-5A3E44BEF6B0 - 5ed86a5b309f759f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Test_assignment.ViewController"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  uuid = "85FB8B0A-E2AB-467A-B1D5-5A3E44BEF6B0 - a444a576248bd8b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Test_assignment.ViewController"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "159">
+               </Location>
+               <Location
+                  uuid = "85FB8B0A-E2AB-467A-B1D5-5A3E44BEF6B0 - 6067f9320807d8c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Test_assignment.ViewController&gt;"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  uuid = "85FB8B0A-E2AB-467A-B1D5-5A3E44BEF6B0 - 4baef0bb401b88ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Test_assignment.ViewController&gt;"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "85FB8B0A-E2AB-467A-B1D5-5A3E44BEF6B0 - 507fcec402a45856"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.__deallocating_deinit"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E816F30A-4511-4743-A21C-6629FE49D2A0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Test assignment/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E816F30A-4511-4743-A21C-6629FE49D2A0 - 9097ba1da775536d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.IPAddressLabel.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "E816F30A-4511-4743-A21C-6629FE49D2A0 - 3318f32b3f6aef19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.IPAddressLabel.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "E816F30A-4511-4743-A21C-6629FE49D2A0 - 95b7ef5cf74ae86e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.IPAddressLabel.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "E816F30A-4511-4743-A21C-6629FE49D2A0 - b4200c9c964f1567"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.IPAddressLabel.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "E816F30A-4511-4743-A21C-6629FE49D2A0 - a444a576248bd8f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Test_assignment.ViewController"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "245">
+               </Location>
+               <Location
+                  uuid = "E816F30A-4511-4743-A21C-6629FE49D2A0 - 4baef0bb401b88f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Test_assignment.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Test_assignment.ViewController&gt;"
+                  moduleName = "Test assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinamoiseeva/Documents/swift/Test%20assignment/Test%20assignment/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "202">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
