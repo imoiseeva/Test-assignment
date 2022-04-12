@@ -98,8 +98,8 @@ class ViewController: UIViewController{
     
     private var imageForAsking: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "Screen")
-        image.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        image.image = UIImage(named: "ball1")
+        image.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -171,28 +171,25 @@ class ViewController: UIViewController{
             getIPButton.topAnchor.constraint(equalTo: IPAddressLabel.bottomAnchor, constant: 10),
             getIPButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             getIPButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            getIPButton.heightAnchor.constraint(equalToConstant: 30),
             
             gettingDarkButton.topAnchor.constraint(equalTo: getIPButton.bottomAnchor, constant: 20),
             gettingDarkButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             gettingDarkButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            gettingDarkButton.heightAnchor.constraint(equalToConstant: 30),
             
             freezingButton.topAnchor.constraint(equalTo: gettingDarkButton.bottomAnchor, constant: 20),
             freezingButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             freezingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            freezingButton.heightAnchor.constraint(equalToConstant: 30),
             
             askingButton.topAnchor.constraint(equalTo: freezingButton.bottomAnchor, constant: 20),
             askingButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             askingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            askingButton.heightAnchor.constraint(equalToConstant: 30),
             
             imageForAsking.topAnchor.constraint(equalTo: askingButton.bottomAnchor, constant: 10),
             imageForAsking.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageForAsking.centerYAnchor.constraint(equalTo: view.centerYAnchor , constant: 200),
-            
-            QRButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
+            imageForAsking.widthAnchor.constraint(equalToConstant: 130),
+            imageForAsking.heightAnchor.constraint(equalToConstant: 130),
+
+            QRButton.topAnchor.constraint(equalTo: imageForAsking.bottomAnchor, constant: 20),
             QRButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             QRButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
@@ -200,20 +197,8 @@ class ViewController: UIViewController{
     
     // MARK: - Methods
     
-    @objc private func asking() {
-        let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball2.png"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
-        imageForAsking.image = ballArray[Int.random(in: 0...4)]
-    }
-    
     @objc private func fetchIP() {
         IPAddressLabel.text = NetworkManager.shared.fetchInfo()
-    }
-    
-    @objc func freezing() {
-        for _ in 1...3 {
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-            sleep(1)
-        }
     }
     
     @objc private func toggleFlashLight() {
@@ -238,6 +223,18 @@ class ViewController: UIViewController{
         }
     }
     
+    @objc func freezing() {
+        for _ in 1...3 {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            sleep(1)
+        }
+    }
+    
+    @objc private func asking() {
+        let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball2.png"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
+        imageForAsking.image = ballArray[Int.random(in: 0...4)]
+    }
+    
     @objc private func setupVideo() {
         session.inputs.forEach(self.session.removeInput(_:))
         session.outputs.forEach(self.session.removeOutput(_:))
@@ -253,7 +250,7 @@ class ViewController: UIViewController{
         
         let output = AVCaptureMetadataOutput()
         session.addOutput(output)
-        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)//todo
+        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
         
         video = AVCaptureVideoPreviewLayer(session: session)
